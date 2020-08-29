@@ -4,7 +4,7 @@ import './style.css'
 function EmployeeTable () {
     return (
 <div className="container">
-<table className="table">
+<table className="table table-hover">
   <thead>
     <tr>
       <th scope="col">Id</th>
