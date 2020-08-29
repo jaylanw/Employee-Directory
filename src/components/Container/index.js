@@ -4,7 +4,6 @@ import Search from './search';
 import api from './API';
 import "./style.css";
 
-
 class Container extends Component {
   state = {
     result: [],
@@ -42,28 +41,22 @@ class Container extends Component {
     });
   };
 
-  handleInputChange = (event) => {
-    event.preventDefault();
-    const value = event.target.value;
-    const name = event.target.name;
-    this.setState({
-      [name]: value,
-    });
-  };
+  sortName(event, sortKey) {
+    const item = this.state.result;
+    switch (sortKey) {
+        case "name.a": 
+            item.sort((a, b) => a.name.first.localeCompare(b.name.first))
+            console.log(item)
+            break;
+        default:
+            break;
+        case "name.z":
+            item.sort((b, a) => a.name.first.localeCompare(b.name.first))
+            break;
+    }
+    this.setState({item});
+}
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    const value = event.target.value;
-    const name = event.target.name;
-    this.searchEmp(value);
-    this.setState({
-      [name]: value
-    });
-    this.filterEmployees(value);
-    this.filterEmployees(this.state.search);
-  };
-
-  
 
   render() {
     return (
@@ -72,7 +65,7 @@ class Container extends Component {
             <Search
               value={this.state.search}
               handleInputChange={this.handleInputChange}
-              handleFormSubmit={this.handleFormSubmit}
+              sortName={this.item}
             />
         </div>
         <table className="table table-hover">
