@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import EmployeeTable from "../EmployeeTable";
+import Search from './search';
 import api from './API';
 import "./style.css";
 
@@ -62,9 +63,18 @@ class Container extends Component {
     this.filterEmployees(this.state.search);
   };
 
+  
+
   render() {
     return (
       <div className="container">
+          <div className="col-md-6">
+            <Search
+              value={this.state.search}
+              handleInputChange={this.handleInputChange}
+              handleFormSubmit={this.handleFormSubmit}
+            />
+        </div>
         <table className="table table-hover">
         <thead>
             <tr>
