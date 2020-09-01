@@ -2,7 +2,7 @@
 View employees in your database! Search for an employee, and sort!
 
 ## Deployed App
-https://github.com/jaylanw/Employee-Directory
+https://serene-ridge-37126.herokuapp.com/
 
 ## Technologies Used:
 - Manifest
